@@ -39,13 +39,15 @@ length = len(profitandloss)-1
 for i in range(0,length):
     changes.append(profitandloss[i+1]- profitandloss[i])
     sum = sum + changes[i]
-ave_change=sum/total
+    average_change = float(sum/months-i)
+    
 gre_inc=max(changes)
 gre_inc_ind=changes.index(max(changes))+1
 gre_dec=min(changes)
 gre_dec_ind=changes.index(min(changes))+1
 
-
+import sys
+sys.stdout = open(os.path.join(sys.path[0],"output_main.txt"),"w")
 print(f"\nFinancial Analysis\n")
 print(f"----------------------------------------\n")
 print(f"Total months: {months}\n")
@@ -55,7 +57,3 @@ print(f"Greatest Increase in Profits: {all_csv[gre_inc_ind][0]}, (${gre_inc})\n"
 print(f"Greatest Decrease in Profits: {all_csv[gre_dec_ind][0]}, (${gre_dec})\n")
 
 
-
-
-with open(output_path, "w") as txt_file:
-    txt_file.write(output)

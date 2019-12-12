@@ -28,7 +28,7 @@ with open(output_path,newline='') as csvfile:
         if row[1] == winner:
             winner_name = row[0]
 
-total_votes = len(candidate)
+total_votes = len(candidate)-1
 correy_total = candidate.count('Correy')
 correy_percent=int(correy_total)/int(total_votes)
 
@@ -43,6 +43,8 @@ Tooley_percent = int(Tooley_total)/int(total_votes)
 
 output_file = os.path.join("election_data.csv")
 
+import sys
+sys.stdout = open(os.path.join(sys.path[0],"output_main.txt"),"w")
 print(f"Election Results")
 print("-------------------------")
 print(f"Total Votes:  + {total_votes}")
@@ -53,3 +55,4 @@ print(f"Li : {Li_percent:.3%} ({Li_total})")
 print(f"O'Tooley : {Tooley_percent:.3%} ({Tooley_total})")
 print(f"------------------------")
 print(f"Winner : {winner_name}")
+print(f"--------------------------")
