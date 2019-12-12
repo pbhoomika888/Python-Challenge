@@ -47,7 +47,7 @@ import sys
 sys.stdout = open(os.path.join(sys.path[0],"output_main.txt"),"w")
 print(f"Election Results")
 print("-------------------------")
-print(f"Total Votes:  + {total_votes}")
+print(f"Total Votes:   {total_votes}")
 print("-------------------------")
 print(f"Khan : {khan_percent:.3%} ({khan_total})")
 print(f"Correy : {correy_percent:.3%} ({correy_total})")
